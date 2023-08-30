@@ -1,7 +1,13 @@
+// Variable is button class from HTML.
+
 var saveBtn = document.querySelector(".saveBtn");
+
+// Extra console logs added just because.
 
 console.log("Hello!");
 console.log("Functionality test.");
+
+// On button click, content in box is saved to localstorage.
 
 $('.saveBtn').on('click', function(){
     var value = $(this).siblings('.description').val();
@@ -9,7 +15,7 @@ $('.saveBtn').on('click', function(){
     localStorage.setItem(time, value);
 })
 
-
+// Each line individually pulls class & textarea using div class #hour.
 
 $('#hour-9 .description').val(localStorage.getItem('hour-9'))
 
@@ -35,6 +41,8 @@ $('#hour-19 .description').val(localStorage.getItem('hour-19'))
 
 $('#hour-20 .description').val(localStorage.getItem('hour-20'))
 
+// Pulls current time from day.js
+
 var time = dayjs().format('dddd, MMMM D, YYYY')
 
 $('#currentDay').text(time)
@@ -54,5 +62,7 @@ function getTimeBlockColor(){
         }
     })
 }
+
+//Determines by color past (GREY), present (RED), or future (GREEN).
 
 getTimeBlockColor();
